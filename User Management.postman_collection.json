@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "247945ff-f68d-4bc4-bf00-c370b204c8d8",
+		"name": "User Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45702289",
+		"_collection_link": "https://rajthakkar-5289070.postman.co/workspace/Raj-Thakkar's-Workspace~96e4f552-651f-4c8a-8e60-48de82e2e5dc/collection/45702289-247945ff-f68d-4bc4-bf00-c370b204c8d8?action=share&source=collection_link&creator=45702289"
+	},
+	"item": [
+		{
+			"name": "Sign Up",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"fullName\": \"Admin User\",\r\n  \"email\": \"admin@test.com\",\r\n  \"password\": \"Admin@123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log In",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"johndoe@gmail.com\",\r\n  \"password\": \"Abcd1234!\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NTQwZDQ4ZjQ1N2YwOGIwNjhjMTk3MCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzY3MTE2MTA0LCJleHAiOjE3NjcyMDI1MDR9.EjHlse7FmLnY8W2v5deVDmj-lrEbR22shYvjI1RThXI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/users/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all the users for admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NTQwZTFlZjQ1N2YwOGIwNjhjMTk3NyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2NzExNjQ4OCwiZXhwIjoxNzY3MjAyODg4fQ.ZHPJSyQ8cIh9v2mlOfqp0Iyv4wK48WLgCFmNo_Y3NJo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/users?page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update status by admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NTQwZTFlZjQ1N2YwOGIwNjhjMTk3NyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2NzExNjQ4OCwiZXhwIjoxNzY3MjAyODg4fQ.ZHPJSyQ8cIh9v2mlOfqp0Iyv4wK48WLgCFmNo_Y3NJo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"status\": \"inactive\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/69540a57e5afff2f4dc94611/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"69540a57e5afff2f4dc94611",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update fullName and email of user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NTQzYTI5NzlmOTc0YTdkMjFjODExYiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2NzE0MjQwMywiZXhwIjoxNzY3MjI4ODAzfQ.riMvrUVu-eQEifx2mg6BlB8ZZT1blUNwBmarzek5nSw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"johndoe@gmail.com\",\r\n    \"fullName\": \"John Smith\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://user-management-system-gb4z.onrender.com/api/users/me",
+					"protocol": "https",
+					"host": [
+						"user-management-system-gb4z",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change password for user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NTQzYTI5NzlmOTc0YTdkMjFjODExYiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2NzE0MjQwMywiZXhwIjoxNzY3MjI4ODAzfQ.riMvrUVu-eQEifx2mg6BlB8ZZT1blUNwBmarzek5nSw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"currentPassword\": \"Abcd1234!\", \r\n    \"newPassword\": \"Abcd1234!@\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://user-management-system-gb4z.onrender.com/api/users/me/password",
+					"protocol": "https",
+					"host": [
+						"user-management-system-gb4z",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"users",
+						"me",
+						"password"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
