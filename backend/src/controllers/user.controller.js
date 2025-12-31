@@ -21,7 +21,7 @@ exports.toggleStatus = async (req, res) => {
     res.json({ status: user.status });
 };
 
-export const updateProfile = async (req, res) => {
+exports.updateProfile = async (req, res) => {
     try {
         const userId = req.user.id;
         const { fullName, email } = req.body;
@@ -53,7 +53,7 @@ export const updateProfile = async (req, res) => {
     }
 };
 
-export const changePassword = async (req, res) => {
+exports.changePassword = async (req, res) => {
     try {
         const userId = req.user.id;
         const { currentPassword, newPassword } = req.body;
